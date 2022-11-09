@@ -1,22 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 void main(void){
-	int i =0;
+	char c;
 	
 	FILE *fp = NULL;
-	fp = fopen("sample.txt", "w");
+	fp = fopen("sample.txt", "r");
 	if (fp == NULL)
 	{
 		printf("파일을 못열음\n");
 		return;
 	}
-	for (i = 0; i<3; i++){
-		char word[30];
-		printf("단어를 입력해주세요: ");
-		scanf("%s", &word);
-		fprintf(fp, "%s\n",word );
-
-	}
-	
+	while ((c=fgetc(fp)) != EOF) putchar(c);
 	fclose(fp);
 }
